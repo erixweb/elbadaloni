@@ -1,0 +1,23 @@
+---
+import { type Topic } from "../types"
+type Props = {
+	link: string
+	image?: string
+	name: string
+	topic: Topic
+	date: string
+}
+
+const { link, image, name, topic, date } = Astro.props
+---
+
+<a href={link} class="max-w-[400px] bg-slate-200 rounded-[12px]">
+	{image ? <img src={image} alt={`Article ${name}`} class="rounded-tr-[12px] rounded-tl-[12px] w-full max-h-[300px] object-cover" /> : null}
+	<div class="p-[1em]">
+		<h3 class="text-[20px] font-bold mb-[20px]">{name}</h3>
+		<strong class="py-[3px] px-[10px] bg-yellow-400 uppercase">{topic}</strong>
+		<p class="mt-[20px]">
+			{date}
+		</p>
+	</div>
+</a>

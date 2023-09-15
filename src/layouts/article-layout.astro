@@ -1,0 +1,49 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Navigation from "../components/navigation.astro"
+
+const { frontmatter } = Astro.props
+const { title, date, topic, image} = frontmatter
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>elbadaloní | {title}</title>
+		<link rel="icon" href="/elbadaloni.webp">
+        <ViewTransitions />
+	</head>
+	<body class="bg-slate-50 w-full min-h-[100vh] text-start">
+		<Navigation />
+		<main class="max-w-[50em] m-auto p-[16px]">
+			<slot />
+		</main>
+	</body>
+</html>
+<style is:inline>
+    h1 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 800;
+        max-width: 500px;
+        margin: auto;
+        text-wrap: balance;
+    }
+    p {
+        margin: auto;
+        max-width: 800px;
+        margin-top: 25px;
+    }
+    main img {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        width: 100%;
+        max-width: 750px;
+        max-height: 450px;
+        object-fit: cover;
+    }
+</style>
