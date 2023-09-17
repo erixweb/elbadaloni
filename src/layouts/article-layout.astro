@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions"
 import Navigation from "../components/navigation.astro"
-import Tweet from "../components/tweet.svelte";
 
 const { frontmatter } = Astro.props
 const { title, date, topic, image } = frontmatter
@@ -15,13 +14,20 @@ const { title, date, topic, image } = frontmatter
 		<title>elbadaloní | {title}</title>
 		<link rel="icon" href="/elbadaloni.webp" />
 		<ViewTransitions />
+		<meta name="title" content={`${title} | elbadaloní`}>
+		<meta name="description" content="Noticies diaries de Badalona 🏙️">
+		<meta name="og:title" content={`${title} | elbadaloní`}>
+		<meta property="og:image" content={image} />
+		<meta property="og:url" content="badaloni.netlify.app" />
+		<meta name="theme-color" content="#FFD500"/>
 	</head>
 	<body class="bg-slate-50 w-full min-h-[100vh] text-start">
 		<Navigation />
 		<main class="max-w-[50em] m-auto p-[16px]">
 			<slot />
 		</main>
-	</body><style is:inline>
+	</body>
+	<style is:inline>
 		h1 {
 			text-align: center;
 			font-size: 25px;
