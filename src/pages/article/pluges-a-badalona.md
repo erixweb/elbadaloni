@@ -2,6 +2,7 @@
 layout: "../../layouts/article-layout.astro"
 title: "Avís vermell per pluges a Badalona ☔"
 date: "15/09/23"
+image: "https://cdn.discordapp.com/attachments/1152239048220475516/1152239114821832757/avisvermell.webp"
 ---
 
 # Avís vermell per pluges a Badalona ☔ 
