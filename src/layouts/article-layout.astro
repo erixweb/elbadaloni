@@ -15,7 +15,7 @@ const { title, date, topic, image } = frontmatter
 		<link rel="icon" href="/elbadaloni.webp" />
 		<script defer>
 			document.addEventListener("astro:page-load", () => {
-				document.querySelectorAll("a").forEach((element) => {
+				document.querySelector("main").querySelectorAll("a").forEach((element) => {
 					element.setAttribute("target", "_blank")
 				})
 			})
