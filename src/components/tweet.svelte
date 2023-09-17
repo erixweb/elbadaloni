@@ -7,7 +7,7 @@
 </script>
 
 <article class="bg-slate-200 rounded-[12px] p-[12px] max-w-[580px] m-auto mt-[20px] mb-[20px]">
-	<a href={tweetUrl} rel="nofollow noindex" target="_blank" class="relative">
+	<a href={tweetUrl} rel="nofollow noindex" target="_blank" class="relative text-black decoration-transparent">
         <div class="absolute top-0 right-0 bg-zinc-800 text-white font-semibold rounded-full px-[12px] py-[2px] hover:bg-zinc-600 duration-[250ms]">Veure en twitter</div>
 		<div class="flex gap-[20px]">
 			<img
