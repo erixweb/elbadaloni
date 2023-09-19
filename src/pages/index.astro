@@ -1,46 +1,28 @@
 ---
 import PageLayout from "../layouts/page-layout.astro"
 import ArticleCard from "../components/article-card.astro"
+
+const posts = await Astro.glob("./article/*.mdx")
 ---
 
 <PageLayout>
 	<main class="w-full max-w-[50em] p-[16px] m-auto">
 		<section class="w-full grid grid-cols-2 gap-[20px] mt-[40px] md:grid-cols-1">
-			<ArticleCard
-				link="article/albiol-respon-a-amenaçes-de-la-ministra-de-transicio-ecologica"
-				name="Albiol respon a amenaçes de la ministra de Transició Ecològica"
-				topic="actualitat"
-				date="19/09/23"
-				image="https://cdn.discordapp.com/attachments/1152239048220475516/1153746123249418260/albiol-clima.webp"
-			/>
-			<ArticleCard
-				link="article/atrasat-entrada-a-zbe-fins-2027"
-				name="S'atrassa l'entrada en vigor de la ZBE fins a 2027"
-				topic="actualitat"
-				date="18/09/23"
-				image="https://cdn.discordapp.com/attachments/1152239048220475516/1153300621114490891/zbe.webp"
-			/>
-			<ArticleCard
-				link="article/detingut-delincuent-de-33-anys"
-				name="Detingut delincuent de 33 anys per agresió a un ancià de 81 👴"
-				topic="actualitat"
-				date="17/09/23"
-				image="https://cdn.discordapp.com/attachments/1152239048220475516/1152932009740607568/badalona_centre.webp"
-			/>
-			<ArticleCard
-				link="article/neteja-de-males-herbes"
-				name="Comença la neteja de males herbes per les aceres 🧹🌿"
-				topic="actualitat"
-				date="16/09/23"
-				image="https://cdn.discordapp.com/attachments/1152239048220475516/1152544300412973096/males-herbes-al-carrer.webp"
-			/>
-			<ArticleCard
-				link="article/pluges-a-badalona"
-				name="Avís vermell per pluges a Badalona ☔"
-				topic="clima"
-				date="15/09/23"
-				image="https://cdn.discordapp.com/attachments/1152239048220475516/1152239114821832757/avisvermell.webp"
-			/>
+			{
+				posts.sort((a: any, b: any) => {
+					const before: any = new Date(b.frontmatter.date)
+					const now: any = new Date(a.frontmatter.date)
+					return before - now
+				}).map((post) => (
+					<ArticleCard
+						link={`article/${post.frontmatter.href}`}
+						name={post.frontmatter.title}
+						topic="actualitat"
+						date={post.frontmatter.date}
+						image={post.frontmatter.image}
+					/>
+				))
+			}
 		</section>
 	</main>
 </PageLayout>
