@@ -17,7 +17,7 @@ const posts = await Astro.glob("./article/*.mdx")
 					<ArticleCard
 						link={`article/${post.frontmatter.href}`}
 						name={post.frontmatter.title}
-						topic="actualitat"
+						topic={post.frontmatter.topic}
 						date={post.frontmatter.date}
 						image={post.frontmatter.image}
 					/>
