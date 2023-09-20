@@ -9,6 +9,22 @@ type Props = {
 }
 
 const { link, image, name, topic, date } = Astro.props
+const postDate = new Date(date)
+
+const months = [
+	"Gener",
+	"Febrer",
+	"Març",
+	"Abril",
+	"Maig",
+	"Juny",
+	"Juliol",
+	"Agost",
+	"Setembre",
+	"Octubre",
+	"Novembre",
+	"Desembre"
+]
 ---
 
 <a href={link} class="max-w-[400px] bg-slate-200 rounded-[12px] md:m-auto">
@@ -18,7 +34,7 @@ const { link, image, name, topic, date } = Astro.props
 				<img
 					src={image}
 					alt={`Article ${name}`}
-					class="rounded-tr-[12px] rounded-tl-[12px] w-full max-h-[300px] object-cover"
+					class="rounded-tr-[12px] rounded-tl-[12px] w-full h-[300px] object-cover"
 				/>
 			) : null
 		}
@@ -27,7 +43,7 @@ const { link, image, name, topic, date } = Astro.props
 	<div class="p-[1em]">
 		<h3 class="text-[20px] font-bold mb-[20px]">{name}</h3>
 		<p class="mt-[20px] text-gray-500">
-			{date}
+			{postDate.getDate()} {" "+ months[postDate.getMonth()]} {" del "+ postDate.getFullYear()}
 		</p>
 	</div>
 </a>
