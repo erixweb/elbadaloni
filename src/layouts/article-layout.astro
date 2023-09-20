@@ -1,9 +1,11 @@
 ---
+import { months } from '../declarations'
 import { ViewTransitions } from "astro:transitions"
 import Navigation from "../components/navigation.astro"
 
 const { frontmatter } = Astro.props
 const { title, date, topic, image } = frontmatter
+const postDate = new Date(date)
 ---
 
 <!doctype html>
@@ -31,6 +33,13 @@ const { title, date, topic, image } = frontmatter
 	<body class="bg-slate-50 w-full min-h-[100vh] text-start">
 		<Navigation />
 		<main class="max-w-[50em] m-auto p-[16px]" id="articles">
+			<h1>
+				{title}
+			</h1>
+			<p class="mt-[20px] text-gray-500 text-center">
+				Publicat {postDate.getDate()} {" "+ months[postDate.getMonth()]} {" del "+ postDate.getFullYear()}
+
+			</p>
 			<slot />
 		</main>
 		<style is:inline>

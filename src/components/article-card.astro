@@ -1,5 +1,6 @@
 ---
-import { type Topic } from "../types"
+import { months } from '../declarations'
+import { type Topic } from '../types'
 type Props = {
 	link: string
 	image?: string
@@ -10,21 +11,6 @@ type Props = {
 
 const { link, image, name, topic, date } = Astro.props
 const postDate = new Date(date)
-
-const months = [
-	"Gener",
-	"Febrer",
-	"Març",
-	"Abril",
-	"Maig",
-	"Juny",
-	"Juliol",
-	"Agost",
-	"Setembre",
-	"Octubre",
-	"Novembre",
-	"Desembre"
-]
 ---
 
 <a href={link} class="max-w-[400px] bg-slate-200 rounded-[12px] md:m-auto">
