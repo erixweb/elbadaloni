@@ -1,6 +1,6 @@
 ---
 import PageLayout from "../layouts/page-layout.astro"
-import ArticleCard from "../components/article-card.astro"
+import Posts from "../components/posts.svelte";
 
 const posts = await Astro.glob("./article/*.mdx")
 ---
@@ -8,21 +8,7 @@ const posts = await Astro.glob("./article/*.mdx")
 <PageLayout>
 	<main class="w-full max-w-[50em] p-[16px] m-auto">
 		<section class="w-full grid grid-cols-2 gap-[20px] mt-[40px] md:grid-cols-1">
-			{
-				posts.sort((a: any, b: any) => {
-					const before: any = new Date(b.frontmatter.date)
-					const now: any = new Date(a.frontmatter.date)
-					return before - now
-				}).map((post) => (
-					<ArticleCard
-						link={`article/${post.frontmatter.href}`}
-						name={post.frontmatter.title}
-						topic={post.frontmatter.topic}
-						date={post.frontmatter.date}
-						image={post.frontmatter.image}
-					/>
-				))
-			}
+			<Posts posts={posts} />
 		</section>
 	</main>
 </PageLayout>
